@@ -1,0 +1,77 @@
+TODO:
+- demo: ragdoll <--- maybe later
+- add/remove log with TPE_LOG so that its nice, useful and not spammy
+
+DONE:
+- FOR GODS SAKE clean the code
+- valgrind, cppcheck, read the whole code, refactor, test on embedded, ...
+- demos for showing basic use (without using helper.h)
+- expand basic tests a bit
+- update the player demo (new 3D environment)
+- bug: catapult demo doesn't work as expected with soft body velocity
+  cancelling
+- bounding box/sphere test functions/macros for optimization of environment
+  building, plus a demo that tests if it actually accelerates it
+- env function: heightmap
+- demo: heightmap
+- demo: angry-birds-like game
+- demo: car
+- env function: cone
+- zero weight joints should behave how? <-- disallowed 0 mass
+- try to make better car physics
+- demo: testing different frictions on skewed plane, also different elasticities
+- test env functions with a single distinct point near camera
+- fast and accurate distance computation as a compile time option, dist comp is
+  prolly a bottleneck
+- function that tests validity of an environemnt function, i.e. if it behaves
+  mathematically correct + test built in env functions with it
+- bug? bodies stuck inside each other resist falling down by gravity (stack.c)
+  ^ Seems to be okay now?
+- test different tick lengths (demo) <-- seems OK
+- test ray casting (e.g. the hit of an outside ray should always be outside)
+- BUG: envBox function doesn't pass the env function test! <-- just needed a
+  bigger epsilon
+- current dist approx fails e.g. with heightmaps -- maybe just use the
+  non-approx version at all times in places where the approx fails? Also
+  TEST THE APPROX DIST with different env functions <--- the improved version
+  works alright, leave the rest for the decision of the library user
+- ray casting against bodies
+- world state hash? for testing determinism etc.
+- check if using fastBSphere vs normal BSphere doesn't affect the simulation
+  result (it shouldn't) <-- on stacks.c gave the same world hash
+- fine tune the number of reshapes needed for nice behavior
+- elasticity doesn't really work in cases when there is an opposing joint to the
+  colliding joint, the speeds always cancel out -- leave as is or somehow fix?
+  ^ let's just ignore it
+- body being pushed (e.g. by gravity) onto a sharp edge will likely not resist
+  (due to only linear forces in connections) and will very easily be split very
+  wide -- TRY AND FIX! Fix could be e.g. in a special function that checks
+  whether any connection is over some tension limit and if so inverts velocities
+  of its joints? OR MAYBE RATHER start applying proportional (as opposed to
+  current linear) acceleration due to tension after some tension limit.
+- demo: soft net (water surface?)
+- try this: when reshaping body, also try to subtract velocities of joints that
+  go against each other along a connection, i.e. velocities that should cancel
+  out... maybe this reduces shaking?
+- air friction (can be done by multiplying energy)
+- collision callbacks, ability to custom handle collision response
+- zero sized joints should never collide (can be useful) <- NO because 0 size
+  can also mean just small size (due to size being stored divided)
+- debug draw inactive bodies with different color?
+- when waking a body by collision, maybe set the disable count to lower values,
+  to handle situations in which two touching bodies wouldn't allow each other
+  to ever get disabled
+- non-rotating bodies
+- demo: 2D physics
+- unify naming: rotation vs orientation
+- function for "faking" rotation of a single-joint body (ball): it will simply
+  rotate by the axis perpendicular to its linear velocity vec
+- BUG? makeCenterBox doesnt seem to add the center joint: check it out <---
+  only hard to see
+- tip: body center can quickly be approximated by just averaging two extreme
+  points rather than averaging all points -- write this somewhere
+- test/handle: collision where the velocity goes "away" from the collision (can
+  happen e.g. if one body is hit by a faster body OR by manual manipulation with
+  velocities) <-- seemed OK
+- orthographics projection for debug draw
+- demo: momentum conservation
