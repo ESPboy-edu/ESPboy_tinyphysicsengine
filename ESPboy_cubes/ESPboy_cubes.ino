@@ -19,8 +19,8 @@
 #define TPE_RESHAPE_ITERATIONS 2
 #define TPE_APPROXIMATE_NET_SPEED 1
 
-#include "../tinyphysicsengine.h"
-#include "../small3dlib.h"
+#include "tinyphysicsengine.h"
+#include "small3dlib.h"
 
 TPE_World tpe_world;
 TPE_Joint tpe_joints[30];
