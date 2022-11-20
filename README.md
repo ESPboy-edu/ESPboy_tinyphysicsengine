@@ -1,5 +1,8 @@
 # tinyphysicsengine
 
+[Original code by Miloslav Číž check here](https://codeberg.org/drummyfish/tinyphysicsengine)
+
+
 ![](tpe1.gif)![](tpe2.gif)![](tpe3.gif)![](tpe4.gif)![](tpe5.gif)![](tpe6.gif)![](tpe7.gif)
 
 This is tinyphysicsengine (TPE), a small, completely public domain KISS/suckless, fixed point physically inaccurate pure C header only 3D physics engine (or rather a library) mostly for entertainment purposes that's supposed to run even on tiny computers such as embedded, even **bare metal**. It's written in the same style/philosophy as [small3dlib](https://codeberg.org/drummyfish/small3dlib), [raycastlib](https://codeberg.org/drummyfish/raycastlib) etc.
