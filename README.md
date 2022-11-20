@@ -1,6 +1,8 @@
 # tinyphysicsengine
 
-[Original code by Miloslav Číž check here](https://codeberg.org/drummyfish/tinyphysicsengine)
+
+[**Original code by Miloslav Číž (drummyfish) check here**](https://codeberg.org/drummyfish/tinyphysicsengine)
+
 
 
 ![](tpe1.gif)![](tpe2.gif)![](tpe3.gif)![](tpe4.gif)![](tpe5.gif)![](tpe6.gif)![](tpe7.gif)
